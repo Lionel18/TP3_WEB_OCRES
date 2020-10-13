@@ -1,8 +1,8 @@
 
 // Fonction appelée lors du click du bouton
-function start() {
+function start(key = "") {
   // Création de l'objet apiWeather
-  const apiWeather = new API_WEATHER();
+  const apiWeather = new API_WEATHER(key);
   // Appel de la fonction fetchTodayForecast
 
   apiWeather
@@ -28,4 +28,14 @@ function start() {
       // Affiche une erreur
       console.error(error);
     });
+
 }
+
+var button= document.getElementById('city-input-button');
+button.addEventListener("click", function()
+{
+  var pays = document.querySelector('#city-input').value;
+  start(pays);
+
+}
+);
